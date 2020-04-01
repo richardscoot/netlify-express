@@ -12,12 +12,12 @@ router.get('/', (req, res) => {
   res.end();
 });
 
-app.get('/happy.png', (req, res) => {
+router.get('/happy.png', (req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/html' });
   res.write('<h1>Hello from Express.js!</h1>');
   res.end();
 });
-app.get('/profile/image', function(req, res){
+router.get('/profile/image', function(req, res){
 
      //some code to find the path to the image associated with some user
 
