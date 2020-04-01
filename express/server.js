@@ -11,6 +11,13 @@ router.get('/', (req, res) => {
   res.write('<h1>Hello from Express.js!</h1>');
   res.end();
 });
+
+router.get('/happy.png', (req, res) => {
+     var img = fs.readFileSync('http://pets.neopets.com/cpn/infinitytm/1/5.png');
+     res.writeHead(200, {'Content-Type': 'image/png' });
+     res.end(img, 'binary');
+});
+
 router.get('/another', (req, res) => res.json({ route: req.originalUrl }));
 router.post('/', (req, res) => res.json({ postBody: req.body }));
 
