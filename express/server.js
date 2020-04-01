@@ -17,12 +17,13 @@ router.get('/happy.png', (req, res) => {
   res.write('<h1>Hello from Express.js!</h1>');
   res.end();
 });
-router.get('/profile/image', function(req, res){
+router.get('/image.png', function(req, res){
 
      //some code to find the path to the image associated with some user
 
      var img = fs.readFileSync('http://pets.neopets.com/cpn/infinitytm/1/5.png');
-      res.sendFile(img);
+       res.writeHead(200, {'Content-Type': 'image/gif' });
+     res.end(img, 'binary');
 });
 router.get('/another', (req, res) => res.json({ route: req.originalUrl }));
 router.post('/', (req, res) => res.json({ postBody: req.body }));
