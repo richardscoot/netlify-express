@@ -17,7 +17,14 @@ router.get('/happy.png', (req, res) => {
      res.writeHead(200, {'Content-Type': 'image/png' });
      res.end(img, 'binary');
 });
+app.get('/profile/image', function(req, res){
 
+     //some code to find the path to the image associated with some user
+
+     var img = fs.readFileSync('http://pets.neopets.com/cpn/infinitytm/1/5.png');
+     res.writeHead(200, {'Content-Type': 'image/png' });
+     res.end(img, 'binary');
+});
 router.get('/another', (req, res) => res.json({ route: req.originalUrl }));
 router.post('/', (req, res) => res.json({ postBody: req.body }));
 
